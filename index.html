@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <div class="header p-3 mb-2 bg-primary text-white text-center">
+        <h1>Weather Dashboard</h1>
+    </div>
+    <div class="row">
+        <div class="p-3 mb-2 col-3 " id="citySearch">
+            <div class="text-black" id="searchArea">
+                <h1>Search for a City:</h1>
+                <input class="col-10" type="text" id="city" placeholder="San Francisco">
+                <button class="bg-primary text-white">Search</button>
+            </div>
+            <div id="history">
+                <button class="bg-secondary col-12 text-white" id="history0">Search</button>
+                <button class="bg-secondary col-12 text-white" id="history1">Search</button>
+                <button class="bg-secondary col-12 text-white" id="history2">Search</button>
+                <button class="bg-secondary col-12 text-white" id="history3">Search</button>
+                <button class="bg-secondary col-12 text-white" id="history4">Search</button>
+                <button class="bg-secondary col-12 text-white" id="history5">Search</button>
+                <button class="bg-secondary col-12 text-white" id="history6">Search</button>
+                <button class="bg-secondary col-12 text-white" id="history7">Search</button>
+            </div>
+        </div>
+        <div class="p-3 mb-2 col-9" id="weatherInfo">
+            <div id="currentWeather">
+                <h1 id="cityAndDate">City Date</h1>
+                <h3>Temp: </h3>
+                <h3 id="currentTemp"></h3>
+                <h3>Wind: </h3>
+                <h3 id="currentWind"></h3>
+                <h3>Humidity: </h3>
+                <h3 id="currentHumidity"></h3>
+                <h3>UV Index: </h3>
+                <h3 id="UVIndex"></h3>
+            </div>
+            <div class="card" id="5Day">
+                <div>
+                    <h2>5-Day Forecast:</h2>
+                </div>
+                <div class="row">
+                    <div class="card-body bg-primary text-white">
+                        <h2 id="day0">Date</h2>
+                        <a href="">Icon</a>
+                        <h4 id="day0Temp">Temp: </h4>
+                        <h4 id="day0Wind">Wind: </h4>
+                        <h4 id="day0Humidity">Humidity: </h4>
+                    </div>
+                    <div class="card-body bg-primary text-white">
+                        <h2 id="day1">Date</h2>
+                        <a href="">Icon</a>
+                        <h4 id="day1Temp">Temp: </h4>
+                        <h4 id="day1Wind">Wind: </h4>
+                        <h4 id="day1Humidity">Humidity: </h4>
+                    </div>
+                    <div class="card-body bg-primary text-white">
+                        <h2 id="day2">Date</h2>
+                        <a href="">Icon</a>
+                        <h4 id="day2Temp">Temp: </h4>
+                        <h4 id="day2Wind">Wind: </h4>
+                        <h4 id="day2Humidity">Humidity: </h4>
+                    </div>
+                    <div class="card-body bg-primary text-white">
+                        <h2 id="day3">Date</h2>
+                        <a href="">Icon</a>
+                        <h4 id="day3Temp">Temp: </h4>
+                        <h4 id="day3Wind">Wind: </h4>
+                        <h4 id="day3Humidity">Humidity: </h4>
+                    </div>
+                    <div class="card-body bg-primary text-white">
+                        <h2 id="day4">Date</h2>
+                        <a href="">Icon</a>
+                        <h4 id="day4Temp">Temp: </h4>
+                        <h4 id="day4Wind">Wind: </h4>
+                        <h4 id="day4Humidity">Humidity: </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
