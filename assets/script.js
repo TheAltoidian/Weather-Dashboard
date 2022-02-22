@@ -1,5 +1,6 @@
-var site = 'https://api.openweathermap.org/data/2.5/onecall?lat=37.77&lon=-122.41&units=imperial&appid=20218664feca793b07da2ba8243b7197';
-var coords = 'http://api.openweathermap.org/geo/1.0/direct?q=Mumbai&limit=1&appid=20218664feca793b07da2ba8243b7197';
+let city;
+
+var coords;
 let cityLat;
 let cityLon;
 
@@ -21,21 +22,23 @@ const setHistoryButtons = function () {
 };
 
 // Convert city to coordinates, pass coordinates to function to get weather
-fetch(coords)
-    .then(function (response) {
-        // console.log(response);
-        response.json().then(function (data) {
-            // console.log(data);
-            // console.log(data[0].lat);
-            cityLat = data[0].lat;
-            cityLon = data[0].lon;
-            console.log("lat: " + cityLat + "\nlon: " + cityLon);
+const displayWeather = function () {
+    coords = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=20218664feca793b07da2ba8243b7197';
+    fetch(coords)
+        .then(function (response) {
+            // console.log(response);
+            response.json().then(function (data) {
+                // console.log(data);
+                // console.log(data[0].lat);
+                cityLat = data[0].lat;
+                cityLon = data[0].lon;
+                console.log("lat: " + cityLat + "\nlon: " + cityLon);
 
 
-            oneCallWeather(cityLat, cityLon);
+                oneCallWeather(cityLat, cityLon);
+            })
         })
-    })
-
+}
 // Get weather given coordinates
 function oneCallWeather(cityLat, cityLon) {
     var site = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + cityLat + '&lon=' + cityLon + '&units=imperial&appid=20218664feca793b07da2ba8243b7197';
@@ -48,7 +51,7 @@ function oneCallWeather(cityLat, cityLon) {
                 currentHumidity.textContent = data.current.humidity + "%";
                 currentUVIndex.textContent = data.current.uvi;
                 var s = new Date(data.current.dt * 1000).toLocaleDateString("en-US");
-                currentCity.textContent = "Mumbai " + s;
+                currentCity.textContent = city + " " + s;
                 var iconURL = 'https://openweathermap.org/img/wn/' + data.current.weather[0].icon + '.png';
                 currentIcon.setAttribute("src", iconURL);
                 console.log(iconURL);
@@ -76,22 +79,26 @@ function oneCallWeather(cityLat, cityLon) {
 const updateList = function (input) {
     for (let i = 7; i > 0; i--) {
         searchHistory[i] = searchHistory[i - 1];
-        console.log("search history "+i+": "+searchHistory[i]);
+        console.log("search history " + i + ": " + searchHistory[i]);
     }
     searchHistory[0] = input;
     console.log(input);
-    console.log("search history 0: "+searchHistory[0]);
+    console.log("search history 0: " + searchHistory[0]);
     setHistoryButtons();
 };
 
-// On click of Search button, update search history
+// On click of Search button, update search history, and send selected city to weather panel 
 document.getElementById("search").addEventListener("click", function () {
     let input = document.getElementById("city").value;
     console.log(input);
     updateList(input);
+    city = input.replace(/ /g, "+");
+    displayWeather();
 });
 
+// Fills search history with local storage info if it exists
 if (localStorage.getItem("searchHistoryStorage")) {
     searchHistory = JSON.parse(localStorage.getItem("searchHistoryStorage"));
     setHistoryButtons();
 };
+
