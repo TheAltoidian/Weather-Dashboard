@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="header p-3 mb-2 bg-primary text-white text-center">
+    <div class="header p-3 bg-primary text-white text-center">
         <h1>Weather Dashboard</h1>
     </div>
     <div class="row">
@@ -35,52 +35,48 @@
         </div>
         <div class="p-3 mb-2 col-9" id="weatherInfo">
             <div id="currentWeather">
-                <h1 id="cityAndDate">City Date</h1>
-                <h3>Temp: </h3>
-                <h3 id="currentTemp"></h3>
-                <h3>Wind: </h3>
-                <h3 id="currentWind"></h3>
-                <h3>Humidity: </h3>
-                <h3 id="currentHumidity"></h3>
-                <h3>UV Index: </h3>
-                <h3 id="UVIndex"></h3>
+                <h1 id="cityAndDate">City Date  </h1><img id="currentIcon"src=""/>
+                <h3 >Temp: <span id="currentTemp" class="ml-2"> </span></h3>
+                <h3>Wind: <span id="currentWind"> </span></h3>
+                <h3>Humidity: <span id="currentHumidity"></span></h3>
+                <h3>UV Index: <span id="UVIndex"></span></h3>
             </div>
-            <div class="card" id="5Day">
+            <div class="card border-0" id="5Day">
                 <div>
                     <h2>5-Day Forecast:</h2>
                 </div>
                 <div class="row">
-                    <div class="card-body bg-primary text-white">
+                    <div class="card-body bg-primary text-white m-1">
                         <h2 id="day0">Date</h2>
-                        <a href="">Icon</a>
+                        <img id="0Icon"src=""/>
                         <h4 id="day0Temp">Temp: </h4>
                         <h4 id="day0Wind">Wind: </h4>
                         <h4 id="day0Humidity">Humidity: </h4>
                     </div>
-                    <div class="card-body bg-primary text-white">
+                    <div class="card-body bg-primary text-white m-1">
                         <h2 id="day1">Date</h2>
-                        <a href="">Icon</a>
+                        <img id="1Icon"src=""/>
                         <h4 id="day1Temp">Temp: </h4>
                         <h4 id="day1Wind">Wind: </h4>
                         <h4 id="day1Humidity">Humidity: </h4>
                     </div>
-                    <div class="card-body bg-primary text-white">
+                    <div class="card-body bg-primary text-white m-1">
                         <h2 id="day2">Date</h2>
-                        <a href="">Icon</a>
+                        <img id="2Icon"src=""/>
                         <h4 id="day2Temp">Temp: </h4>
                         <h4 id="day2Wind">Wind: </h4>
                         <h4 id="day2Humidity">Humidity: </h4>
                     </div>
-                    <div class="card-body bg-primary text-white">
+                    <div class="card-body bg-primary text-white m-1">
                         <h2 id="day3">Date</h2>
-                        <a href="">Icon</a>
+                        <img id="3Icon"src=""/>
                         <h4 id="day3Temp">Temp: </h4>
                         <h4 id="day3Wind">Wind: </h4>
                         <h4 id="day3Humidity">Humidity: </h4>
                     </div>
-                    <div class="card-body bg-primary text-white">
+                    <div class="card-body bg-primary text-white m-1">
                         <h2 id="day4">Date</h2>
-                        <a href="">Icon</a>
+                        <img id="4Icon"src=""/>
                         <h4 id="day4Temp">Temp: </h4>
                         <h4 id="day4Wind">Wind: </h4>
                         <h4 id="day4Humidity">Humidity: </h4>
@@ -98,6 +94,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>
