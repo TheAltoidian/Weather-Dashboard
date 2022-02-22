@@ -11,6 +11,15 @@ let currentHumidity = document.getElementById("currentHumidity");
 let currentUVIndex = document.getElementById("UVIndex");
 let currentIcon = document.getElementById("currentIcon");
 
+let searchHistory = [".", ".", ".", ".", ".", ".", ".", "."];
+// Assigns value to search history buttons
+const setHistoryButtons = function () {
+    for (let i = 0; i < 8; i++) {
+        document.getElementById("history" + i).textContent = searchHistory[i];
+    }
+    localStorage.setItem("searchHistoryStorage", JSON.stringify(searchHistory));
+};
+
 // Convert city to coordinates, pass coordinates to function to get weather
 fetch(coords)
     .then(function (response) {
@@ -52,13 +61,37 @@ function oneCallWeather(cityLat, cityLon) {
                     let temperature = document.getElementById("day" + i + "Temp");
                     let wind = document.getElementById("day" + i + "Wind");
                     let humidity = document.getElementById("day" + i + "Humidity");
-                    let forecastWeather = 'https://openweathermap.org/img/wn/' + data.daily[i+1].weather[0].icon + '.png';
-                    document.getElementById(i+"Icon").setAttribute("src", forecastWeather);
-                    day.textContent = new Date(data.daily[i+1].dt * 1000).toLocaleDateString("en-US");
-                    temperature.textContent = "Temp: " + data.daily[i+1].temp.max + " F";
-                    wind.textContent = "Wind: " + data.daily[i+1].wind_speed + "mph";
-                    humidity.textContent = "Humidity: " + data.daily[i+1].humidity + "%";
+                    let forecastWeather = 'https://openweathermap.org/img/wn/' + data.daily[i + 1].weather[0].icon + '.png';
+                    document.getElementById(i + "Icon").setAttribute("src", forecastWeather);
+                    day.textContent = new Date(data.daily[i + 1].dt * 1000).toLocaleDateString("en-US");
+                    temperature.textContent = "Temp: " + data.daily[i + 1].temp.max + " F";
+                    wind.textContent = "Wind: " + data.daily[i + 1].wind_speed + "mph";
+                    humidity.textContent = "Humidity: " + data.daily[i + 1].humidity + "%";
                 }
             })
         });
 }
+
+// Updates search history
+const updateList = function (input) {
+    for (let i = 7; i > 0; i--) {
+        searchHistory[i] = searchHistory[i - 1];
+        console.log("search history "+i+": "+searchHistory[i]);
+    }
+    searchHistory[0] = input;
+    console.log(input);
+    console.log("search history 0: "+searchHistory[0]);
+    setHistoryButtons();
+};
+
+// On click of Search button, update search history
+document.getElementById("search").addEventListener("click", function () {
+    let input = document.getElementById("city").value;
+    console.log(input);
+    updateList(input);
+});
+
+if (localStorage.getItem("searchHistoryStorage")) {
+    searchHistory = JSON.parse(localStorage.getItem("searchHistoryStorage"));
+    setHistoryButtons();
+};
