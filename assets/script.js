@@ -102,3 +102,36 @@ if (localStorage.getItem("searchHistoryStorage")) {
     setHistoryButtons();
 };
 
+// Click on search history button, display the weather in that city
+document.getElementById("history0").addEventListener("click", function () {
+    city = this.textContent.replace(/ /g, "+");
+    displayWeather();
+});
+document.getElementById("history1").addEventListener("click", function () {
+    city = this.textContent.replace(/ /g, "+");
+    displayWeather();
+});
+document.getElementById("history2").addEventListener("click", function () {
+    city = this.textContent.replace(/ /g, "+");
+    displayWeather();
+});
+document.getElementById("history3").addEventListener("click", function () {
+    city = this.textContent.replace(/ /g, "+");
+    displayWeather();
+});
+document.getElementById("history4").addEventListener("click", function () {
+    city = this.textContent.replace(/ /g, "+");
+    displayWeather();
+});
+document.getElementById("history5").addEventListener("click", function () {
+    city = this.textContent.replace(/ /g, "+");
+    displayWeather();
+});
+document.getElementById("history6").addEventListener("click", function () {
+    city = this.textContent.replace(/ /g, "+");
+    displayWeather();
+});
+document.getElementById("history7").addEventListener("click", function () {
+    city = this.textContent.replace(/ /g, "+");
+    displayWeather();
+});
