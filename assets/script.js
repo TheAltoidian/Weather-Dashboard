@@ -50,8 +50,17 @@ function oneCallWeather(cityLat, cityLon) {
                 currentWind.textContent = data.current.wind_speed + "mph";
                 currentHumidity.textContent = data.current.humidity + "%";
                 currentUVIndex.textContent = data.current.uvi;
+                if (currentUVIndex.textContent < 3.0) {
+                    currentUVIndex.className = "bg-success";
+                }
+                else if (currentUVIndex.textContent < 6) {
+                    currentUVIndex.className = "bg-warning";
+                }
+                else {
+                    currentUVIndex.className = "bg-danger";
+                }
                 var s = new Date(data.current.dt * 1000).toLocaleDateString("en-US");
-                currentCity.textContent = city + " " + s;
+                currentCity.textContent = city.replace("+", " ",) + " " + s;
                 var iconURL = 'https://openweathermap.org/img/wn/' + data.current.weather[0].icon + '.png';
                 currentIcon.setAttribute("src", iconURL);
                 console.log(iconURL);
